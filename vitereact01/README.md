@@ -1,8 +1,15 @@
-# React + Vite
+# React 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple Counter Component in React
 
-Currently, two official plugins are available:
+This is a basic React component that demonstrates state management with useState, functional updates for state changes, and event handling for user interactions. It implements a counter that can be incremented, decremented (with a minimum value of 0), and reset to 0.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Key Concepts:
+
+State Management with useState
+Functional Updates
+Conditional State Updates
+Event Handling
+JSX Syntax
+Functional Component Structure
+This component serves as a foundational example for building interactive UIs with React.
