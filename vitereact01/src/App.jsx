@@ -1,56 +1,44 @@
-// import { useState } from 'react'
-
-
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import CreateUserDetails from './UserDetails';
+import PersonForm from './personList';
+import Index from './index.Jsx';
+
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = () => {
-      fetch('http://192.168.1.13:3000/get')
-        .then((response) => response.json())
-        .then((data) => setData(data))
-        .catch((error) => console.error('Error fetching data:', error));
-    };
-
-    fetchData();
-  }, []);
 
   return (
-    <div>
-      <h1>Data from API</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item._id}>
-            {/* Display relevant data from each item */}
-            {item.name} - {item.age} - {item.work} 
-          </li>
-        ))}
+<div>
+  
+  <Router>
+  <nav className="navbar">
+      <ul className="navbar-links">
+        <li>
+          <Link to="/" className="navbar-link">Home</Link>
+        </li>
+        <li>
+          <Link to="/create" className="navbar-link">Create(An User)</Link>
+        </li>
+        <li>
+          <Link to="/users" className="navbar-link">Users Details</Link>
+        </li>
       </ul>
-    </div>
+    </nav>
+
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/create" element={<CreateUserDetails />} />
+      <Route path="/Users" element={<PersonForm />} />
+    </Routes>
+
+
+
+  </Router>
+</div>
   );
 }
 
-// export default MyComponent;
 
 
-
-// function App() {
- 
-//   let [count, setCount] = useState(0);
-//   const increment = () => setCount(count + 1);
-//   const decrement = () => {if(setCount>0)setCount(count - 1)};
-//   const reset = () => setCount(0);
-
-
-//   return (
-//     <>
-//      <button onClick={increment}>Increment{count}</button>
-//       <button onClick={decrement}>Decrement{count}</button>
-//       <button onClick={reset}>Reset{count}</button>
-//     </>
-//   )
-// }
-
-export default App
+export default App;
